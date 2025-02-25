@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedFit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://fitness1440.com/lawrenceville/wp-content/uploads/2019/12/best-gym-in-lawrenceville-ga.jpg'); /* Substitua pela imagem desejada */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>RedFit</h1>
+<div class="menu">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#cadastro">Cadastro</a>
+</div>
+
+<div class="container" id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Bem-vindo à RedFit, onde sua saúde se torna nossa prioridade!</p>
+</div>
+
+<div class="container" id="servicos">
+    <h2>Nossos Serviços</h2>
+    <ul>
+        <li>Musculação</li>
+        <li>Aulas de Yoga</li>
+        <li>Personal Trainer</li>
+        <li>Nutricionista</li>
+    </ul>
+</div>
+
+<div class="container" id="Cadastro">
+    <h2>Cadastro</h2>
+    <form id="CadastroForm">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" step="0.1" required>
+
+        <label for="altura">Altura (m):</label>
+        <input type="number" id="altura" step="0.01" required>
+
+        <label for="foto">Enviar foto:</label>
+        <input type="file" id="foto">
+
+        <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+        <p id="resultadoIMC"></p>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+
+<script>
+    function calcularIMC() {
+        let peso = parseFloat(document.getElementById("peso").value);
+        let altura = parseFloat(document.getElementById("altura").value);
+        if (peso > 0 && altura > 0) {
+            let imc = (peso / (altura * altura)).toFixed(2);
+            document.getElementById("resultadoIMC").innerText = "Seu IMC é: " + imc;
+        } else {
+            alert("Preencha corretamente o peso e a altura.");
+        }
+    }
+
+    document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+        alert("Cadastro realizado com sucesso!");
+        event.preventDefault();
+    });
+</script>
+
+</body>
+</html>
+
+<footer>
+    <p>&copy; 2025 RedFit. Todos os direitos reservados.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
